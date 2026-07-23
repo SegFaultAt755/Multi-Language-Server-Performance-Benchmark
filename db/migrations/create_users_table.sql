@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age SMALLINT NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    is_male BOOLEAN NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    bio TEXT NOT NULL
+);

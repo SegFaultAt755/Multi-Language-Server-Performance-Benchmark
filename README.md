@@ -65,7 +65,7 @@ Each framework features 4 distinct execution modes:
 benchmark-suite/
 ├── db/                       # Shared database migrations & seed files
 │   ├── migrations/           # Raw .sql scripts
-│   └── seed.sql              # Initial benchmark datasets
+│   └── seed.sql              # Initial benchmark datasets (create users table)
 ├── cpp-userver/              # C++ implementation using userver
 │   ├── src/                  # Handlers, components, and models
 │   └── CMakeLists.txt
@@ -90,8 +90,28 @@ benchmark-suite/
 
 ### Database Setup
 
+#### Pull the Docker Image
+
+Fetch the official PostgreSQL 17 Bookworm image from Docker Hub:
+
 ```bash
-# [PLACEHOLDER: Insert database startup / migration commands]
+docker pull postgres:17-bookworm
+```
+
+#### Start the Database Service
+
+Launch the containerized database in detached mode:
+
+```bash
+docker-compose up -d
+```
+
+#### Stop the Database Service
+
+When the benchmarking is finished, shutdown the running containers and release resources:
+
+```bash
+docker-compose down
 ```
 
 ### C++ (`userver`)
